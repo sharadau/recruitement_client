@@ -1,0 +1,13 @@
+<center><div class="jumbotron" style="align-content:center;background-color: white">
+    <p class="lead">
+        <img style="height: 80px;width: 100px;background-color: #eee" src="images/global-search-icon.jpg"><br>
+        Search Openings
+    </p>
+
+        <form name="searchform">
+        <input type="text" data-ng-model="searchText" style="width: 400px;" required="">
+        <button ng-disabled="searchform.$invalid" style="height: 25px;width: 30px;" ui-sref="searchResult({searchText:searchText})" type="submit">
+            <span class="glyphicon glyphicon-search" ></span>
+        </button>
+        </form>
+</div></center>
