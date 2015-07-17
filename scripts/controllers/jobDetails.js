@@ -19,8 +19,67 @@ angular.module('dashboardApp')
                 SearchService.getJobByJobDetailUrl($stateParams.JobDetailUrl)
                     .success (function (data){
                     //console.log("data:"+JSON.stringify(data.response));
+
                     $scope.jobDetails = data.response.docs[0];
-                    console.log("Result:"+JSON.stringify($scope.jobDetails[0]))
+                    if(typeof $scope.jobDetails.Address == 'object')
+                    {
+                        $scope.jobDetails.Address[0] = $scope.jobDetails.Address[0] + ',';
+                    }else{
+                        $scope.jobDetails.Address = {};
+                        $scope.jobDetails.Address[0] = '';
+                    }
+
+                    if(typeof $scope.jobDetails.CompanyName != 'object')
+                    {
+                        $scope.jobDetails.CompanyName = {};
+                        $scope.jobDetails.CompanyName[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.Industry != 'object')
+                    {
+                        $scope.jobDetails.Industry = {};
+                        $scope.jobDetails.Industry[0] = "";
+                    }
+
+                    if(typeof $scope.jobDetails.JobCategory != 'object')
+                    {
+                        $scope.jobDetails.JobCategory = {};
+                        $scope.jobDetails.JobCategory[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.Role != 'object')
+                    {
+                        $scope.jobDetails.Role = {};
+                        $scope.jobDetails.Role[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.YearsOfExperience != 'object')
+                    {
+                        $scope.jobDetails.YearsOfExperience = {};
+                        $scope.jobDetails.YearsOfExperience[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.Department != 'object')
+                    {
+                        $scope.jobDetails.Department = {};
+                        $scope.jobDetails.Department[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.Education != 'object')
+                    {
+                        $scope.jobDetails.Education = {};
+                        $scope.jobDetails.Education[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.Website != 'object')
+                    {
+                        $scope.jobDetails.Website = {};
+                        $scope.jobDetails.Website[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.Salary != 'object')
+                    {
+                        $scope.jobDetails.Salary = {};
+                        $scope.jobDetails.Salary[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.DatePosted != 'object')
+                    {
+                        $scope.jobDetails.DatePosted = {};
+                        $scope.jobDetails.DatePosted[0] = "";
+                    }
                 })
                     .error (function (error){
                     console.log (error.msg);});
