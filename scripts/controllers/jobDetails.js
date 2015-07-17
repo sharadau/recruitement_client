@@ -14,9 +14,9 @@ angular.module('dashboardApp')
       'AngularJS',
       'Karma'
     ];
-        $scope.jobId = $stateParams.jobId;
-
-                SearchService.getJobById($stateParams.jobId)
+        $scope.JobDetailUrl = $stateParams.JobDetailUrl;
+        console.log('jobdetailsurl:'+$stateParams.JobDetailUrl);
+                SearchService.getJobByJobDetailUrl($stateParams.JobDetailUrl)
                     .success (function (data){
                     //console.log("data:"+JSON.stringify(data.response));
                     $scope.jobDetails = data.response.docs[0];

@@ -12,28 +12,29 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="nav navbar-nav navbar-right" style="padding-right: 30px;">
-        <a> {{pagination_message}}</b></a>
-    </div>
-</div>
 <table width="100%" class="table table-hover table-responsive table-condensed tab-content" data-ng-repeat="job in result">
     <td>
         <table width="100%">
             <tr>
-                <td> Organization: {{job.HospitalName[0]}}</td> <td colspan="2">Location: {{job.City[0]}}, {{job.State[0]}}</td>
+                <td>Organization: {{job.CompanyName[0]}}</td> <td colspan="2">Location: {{job.City[0]}} {{job.State[0]}}</td>
             </tr>
             <tr>
-                <td width="50%"><a ui-sref="jobDetails({jobId:job.id})">{{job.JobTitle[0]}}</a></td>
+                <td width="50%"><a ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl})">{{job.JobTitle[0]}} {{job.YearsOfExperience[0]}}</a></td>
                 <td colspan="2" width="40%">Job Category: {{job.JobCategory[0]}}</td><td><a target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></td>
             </tr>
             <tr>
-                <td colspan="3"><a target="_blank" ui-sref="jobDetails({jobId:job.id})" >Read More... </a></td>
+                <td>Date Posted: {{job.DatePosted[0]}}</td></td><td colspan="2"><a target="_blank" ui-sref="jobDetails({jobId:job.id})" >Read More... </a></td>
             </tr>
         </table>
     </td>
-
 </table>
-
+<div class="nav navbar-nav navbar-right" style="padding-right: 30px;">
+    <table>
+        <tr>
+            <td style="padding-right: 5px;">{{pagination_message}}</td>
+            <td><pagination total-items="resultCount" ng-model="currentPage" ng-change="pageChanged()"></pagination></td>
+        </tr>
+    </table>
+</div>
 
 

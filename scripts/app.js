@@ -41,24 +41,6 @@ angular
         $httpProvider.interceptors.push('jwtInterceptor');
     // Now set up the states
     $stateProvider
-      /*  .state("login",{
-            templateUrl:"views/login.html",
-            controller:"LoginCtrl",
-            url:"/login"
-        })
-        .state("auth",{
-            templateUrl:"views/authenticated.html",
-            controller:"AuthCtrl",
-            abstract: true,
-            data: {
-                requiresLogin: true
-            }
-        })*/
-    .state('dashboard', {
-        url: "/dashboard",
-        templateUrl: "views/dashboard.html",
-        controller: "DashboardCtrl"
-      })
         .state('search', {
             url: "/search",
             templateUrl: "views/search.html",
@@ -70,15 +52,10 @@ angular
             controller: "SearchResultCtrl"
         })
         .state('jobDetails', {
-            url: "/job_details/:jobId",
+            url: "/job_details/:JobDetailUrl",
             templateUrl: "views/job_details.html",
             controller: "JobDetailsCtrl"
         })
-      .state('home', {
-        url: "/home",
-        templateUrl: "views/home.html",
-        controller: "HomeCtrl"
-      })
 
         // Add a simple interceptor that will fetch all requests and add the jwt token to its authorization header.
         // NOTE: in case you are calling APIs which expect a token signed with a different secret, you might

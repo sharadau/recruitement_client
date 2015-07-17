@@ -19,17 +19,33 @@
 </div>
 <div class="container">
         <div class="panel-wrapper" >
-            <label class="control-label">Organization: </label>{{jobDetails.HospitalName[0]}}
-        </div>
-
-        <div class="panel-wrapper">
-            <label class="control-label">Location: </label>{{jobDetails.City[0]}}, {{jobDetails.State[0]}}
+            <label class="control-label">Organization: </label> {{jobDetails.CompanyName[0]}} <label class="control-label">Industry:</label> {{jobDetails.Industry[0]}} <a href="jobDetails.JobDetailsUrl[0]">Job Details</a>
         </div>
         <div class="panel-wrapper">
-            <label class="control-label">Category: </label>{{jobDetails.JobCategory[0]}}
-        </div><br/><br/>
+            <label class="control-label">Location: </label> {{jobDetails.Address[0]}}, {{jobDetails.City[0]}} {{jobDetails.State[0]}}
+        </div>
+        <div class="panel-wrapper">
+            <label class="control-label">Category: </label> {{jobDetails.JobCategory[0]}} <label class="control-label">Department:</label> {{jobDetails.Department[0]}} <label class="control-label">Role:</label> {{jobDetails.Role[0]}}
+        </div>
     <div class="panel-wrapper">
-        <label class="control-label">Description:</label> {{jobDetails.WholePosting[0]}}
+        <label class="control-label">Experience: </label> {{jobDetails.YearsOfExperience[0]}} <label class="control-label">Education:</label> {{jobDetails.Education[0]}}
+    </div>
+    <div class="panel-wrapper">
+        <label class="control-label">Company Profile: </label> {{jobDetails.Website[0]}}{{jobDetails.CompanyProfile[0]}}
+    </div>
+    <div class="panel-wrapper">
+        <label class="control-label">Salary: </label> {{jobDetails.Salary[0]}}
+    </div>
+    <div class="panel-wrapper">
+        <label class="control-label">Date Posted: </label> {{jobDetails.DatePosted[0]}}
+    </div>
+    <div class="panel-wrapper">
+        <label class="control-label">Contact: </label> {{jobDetails.ContactName[0]}} {{jobDetails.ContactEmailAddress[0]}}
+    </div>
+
+    <br/><br/>
+    <div class="panel-wrapper">
+        <label class="control-label">Description:</label> {{jobDetails.JobDescription[0]}}
     </div>
 
 </div>
