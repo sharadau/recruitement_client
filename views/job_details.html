@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" >
     <div class="nav navbar-nav navbar-right" style="padding-right: 30px;">
         <a ui-sref="search"><b>New Search</b></a> |
         <a href="javascript:history.back()"><b> Back</b></a>
@@ -17,9 +17,9 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="container" style="height: 450px">
         <div class="panel-wrapper" >
-            <label class="control-label" ng-if="jobDetails.CompanyName[0] != ''">Company: </label> {{jobDetails.CompanyName[0]}} <label class="control-label" ng-if="jobDetails.Industry[0] != ''">Industry:</label> {{jobDetails.Industry[0]}} <a href="jobDetails.JobDetailsUrl[0]">Job Details</a>
+            <label class="control-label" ng-if="jobDetails.CompanyName[0] != ''">Company: </label> {{jobDetails.CompanyName[0]}} <label class="control-label" ng-if="jobDetails.Industry[0] != ''">Industry:</label> {{jobDetails.Industry[0]}} <a href="{{jobDetails.JobDetailsUrl[0]}}">Job Details</a>
         </div>
         <div class="panel-wrapper">
             <label class="control-label">Location: </label> {{jobDetails.Address[0]}} {{jobDetails.City[0]}} {{jobDetails.State[0]}}

@@ -20,7 +20,8 @@ angular.module('dashboardApp')
                 success: function (callback) {successCallback = callback; return response;},
                 error: function (callback) {errorCallback = callback; return response;}
             };
-            $http.get(service_base_url+'/select?q=*'+technology+'*~4&start='+start+'&rows='+records+'&wt=json&indent=true')
+            //alert(service_base_url+'/select?q=*'+technology+'*&start='+start+'&rows='+records+'&wt=json&indent=true');
+            $http.get(service_base_url+'/select?q=*'+technology+'*&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
                 .success(function(item){
                     successCallback(item);
                 })
