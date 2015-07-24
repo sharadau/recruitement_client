@@ -1,13 +1,78 @@
-<center><div class="jumbotron" style="align-content:center;background-color: white;height: 500px">
-    <p class="lead">
-        <img style="height: 80px;width: 100px;background-color: #eee" src="images/global-search-icon.jpg"><br>
-        Search Openings
-    </p>
+<!--<style>
+    .sidebar {
+        position: fixed;
+        top: 50px;
+        bottom: 60px;
+        left:0px;
+        width: 15%;
+        z-index: 1000;
+        display: block;
+        padding: 20px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        border-right: 1px solid #eee;
+    }
 
+</style>-->
+<!--<div class="container-fluid-">
+<div class="row">
+    <div class="col-xs-3 sidebar">
+        <h3>Search</h3>
+        <h3>Single select facet</h3>
+        <h3>Multi select facet</h3>
+        <h3>Results Per Page</h3>
+        <select ng-model="indexVM.pageSize">
+            <option ng-repeat="item in [10, 20, 50, 100]">{{item}}</option>
+        </select>
+    </div>
+    </div>
+</div>-->
+            <div >
+                <span><b>City</b></span>
+            </div>
+
+            <ul id="sidebar" class="nav nav-stacked affix">
+                <li  data-ng-repeat="category in categories"><a data-ng-click="displayResultByCategory('city',category.category,1)">{{category.category}} ({{category.count}})</a></li>
+            </ul>
+
+
+<div class="container-fluid" style="align-content:center;background-color: white;height: 500px;margin-left:180px;margin-top: 0px">
         <form name="searchform">
+            <img style="height: 40px;width: 50px;background-color: #eee" src="images/global-search-icon.jpg">
+            <label>Search IT Job Openings</label>
         <input type="text" data-ng-model="searchText" style="width: 400px;" required="">
         <button ng-disabled="searchform.$invalid" style="height: 25px;width: 30px;" ui-sref="searchResult({searchText:searchText})" type="submit">
             <span class="glyphicon glyphicon-search" ></span>
         </button>
         </form>
-</div></center>
+
+    <span class="navbar-brand subheader" style="color: #000066">Search Result for <b><span color="#999">{{searchText}}</span></b></span>
+    <div style="height: 500px">
+        <table width="100%" class="table table-hover table-responsive table-condensed tab-content" data-ng-repeat="job in result">
+            <td>
+                <table width="100%">
+                    <tr>
+                        <td>Organization: {{job.CompanyName[0]}}</td> <td colspan="2">Location: {{job.City[0]}} {{job.State[0]}}</td>
+                    </tr>
+                    <tr>
+                        <td width="50%"><a ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl})">{{job.JobTitle[0]}} {{job.YearsOfExperience[0]}}</a></td>
+                        <td colspan="2" width="40%">Job Category: {{job.JobCategory[0]}}</td><td><a target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></td>
+                    </tr>
+                    <tr>
+                        <td>Date Posted: {{job.DatePosted[0]}}</td></td><td colspan="2"><a target="_blank" ui-sref="jobDetails({jobId:job.id})" >Read More... </a></td>
+                    </tr>
+                </table>
+            </td>
+        </table>
+        <div class="nav navbar-nav navbar-right" style="padding-right: 30px;">
+            <table>
+                <tr>
+                    <td style="padding-right: 5px;">{{pagination_message}}</td>
+                    <td><pagination total-items="resultCount" ng-model="currentPage" ng-change="pageChanged()"></pagination></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</div>
