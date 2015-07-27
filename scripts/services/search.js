@@ -59,7 +59,7 @@ angular.module('dashboardApp')
                 success: function (callback) {successCallback = callback; return response;},
                 error: function (callback) {errorCallback = callback; return response;}
             };
-            $http.get(service_base_url+'/select?q=JobDetailUrl%3A'+url+'&wt=json&indent=true')
+            $http.get(service_base_url+'/select?q=JobDetailUrl%3A%22'+url+'%22&wt=json&indent=true')
                 .success(function(item){
                     successCallback(item);
                 })
@@ -84,7 +84,7 @@ angular.module('dashboardApp')
             var records=10;
             var catArray = category_name.split(',');
            // alert(service_base_url+'/select?q=City%3A'+category_name+'&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>');
-            $http.get(service_base_url+'/select?q=City%3A'+category_name+'&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
+            $http.get(service_base_url+'/select?q=City%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
                 .success(function(item){
                     successCallback(item);
                 })
@@ -98,13 +98,22 @@ angular.module('dashboardApp')
             return response;
         };
 
-        this.getAllJobs = function () {
+        this.getAllJobByCity = function (limit) {
             var successCallback, errorCallback;
             var response = {
                 success: function (callback) {successCallback = callback; return response;},
                 error: function (callback) {errorCallback = callback; return response;}
             };
-            $http.get(service_base_url+'/select?q=*%3A*&fl=City&wt=json&indent=true&facet=true&facet.field=City&facet.mincount=25')
+            var limitCondition = '';
+            if(limit == 0)
+            {
+                limitCondition = '';
+            }else
+            {
+                limitCondition = '&facet.limit='+limit;
+            }
+
+                $http.get(service_base_url+'/select?q=*%3A*&fl=City&wt=json&indent=true&facet=true&facet.field=City'+limitCondition)
                 .success(function(item){
                     successCallback(item);
                 })
