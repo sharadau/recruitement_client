@@ -48,9 +48,9 @@ angular.module('dashboardApp')
             }
         }
 
-        $scope.setPage = function (pageNo) {
+        /*$scope.setPage = function (pageNo) {
             $scope.currentPage = pageNo;
-        };
+        };*/
 
         $scope.pageChanged = function () {
             console.log('Page changed to: ' + $scope.currentPage);
