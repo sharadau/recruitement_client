@@ -21,7 +21,7 @@ angular.module('dashboardApp')
             var records = 10;
             var start = (page - 1) * 10 + 1;
             var end = start + 9;
-            
+
             if(category != '')
             {
                 //alert("in cat search start:"+start+" end:"+end);
