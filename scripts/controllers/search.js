@@ -127,10 +127,12 @@ angular.module('dashboardApp')
         }
         $scope.displayAllCities(5);
 
+        $scope.capitalise = function(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        }
         $scope.getOpeningsStartsWith = function(val)
         {
-
-            //alert(service_base_url+'/select?q*%3A*&wt=json&indent=true&fl=City,JobTitle&start=0&records=20&facet=true&facet.field=City&facet.field=JobTitle&facet.prefix='+val+'&facet.limit=5');
+            val = $scope.capitalise(val);
             return $http.get(service_base_url+'/select?q*%3A*&wt=json&indent=true&fl=City,JobTitle&start=0&records=20&facet=true&facet.field=City&facet.field=JobTitle&facet.prefix='+val+'&facet.limit=5', {
             }).then(function(response){
                 var newOne = new Array();

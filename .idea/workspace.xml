@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1dae0ec-91c5-4e7e-a6fb-1eff020e3583" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/search.html" afterPath="$PROJECT_DIR$/views/search.html" />
+      <change type="DELETED" beforePath="F:\recruitement_site\solr-5.2.1\solr-5.2.1\server\solr-webapp\webapp\recruitement_client\.idea\.name" afterPath="" />
+      <change type="DELETED" beforePath="F:\recruitement_site\solr-5.2.1\solr-5.2.1\server\solr-webapp\webapp\recruitement_client\.idea\encodings.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\recruitement_site\solr-5.2.1\solr-5.2.1\server\solr-webapp\webapp\recruitement_client\.idea\modules.xml" afterPath="" />
+      <change type="DELETED" beforePath="F:\recruitement_site\solr-5.2.1\solr-5.2.1\server\solr-webapp\webapp\recruitement_client\.idea\recruitement_client.iml" afterPath="" />
+      <change type="DELETED" beforePath="F:\recruitement_site\solr-5.2.1\solr-5.2.1\server\solr-webapp\webapp\recruitement_client\.idea\vcs.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/controllers/search.js" afterPath="$PROJECT_DIR$/scripts/controllers/search.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/services/search.js" afterPath="$PROJECT_DIR$/scripts/services/search.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="recruitement_client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,8 +35,8 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/services/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.448276" vertical-offset="1485" max-vertical-offset="2312">
-              <caret line="130" column="46" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="46" />
+            <state vertical-scroll-proportion="-14.448276" vertical-offset="1502" max-vertical-offset="2329">
+              <caret line="131" column="46" selection-start-line="131" selection-start-column="34" selection-end-line="131" selection-end-column="46" />
               <folding>
                 <element signature="e#2336#3016#0" expanded="false" />
                 <element signature="e#2413#2609#0" expanded="false" />
@@ -44,8 +48,8 @@
       <file leaf-file-name="search.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/scripts/controllers/search.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5202822" vertical-offset="453" max-vertical-offset="1037">
-              <caret line="146" column="44" selection-start-line="146" selection-start-column="44" selection-end-line="146" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.20987654" vertical-offset="442" max-vertical-offset="1071">
+              <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
               <folding>
                 <element signature="e#544#3449#0" expanded="false" />
                 <element signature="e#3492#3835#0" expanded="false" />
@@ -289,8 +293,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/services/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.448276" vertical-offset="1485" max-vertical-offset="2312">
-          <caret line="130" column="46" selection-start-line="130" selection-start-column="34" selection-end-line="130" selection-end-column="46" />
+        <state vertical-scroll-proportion="-14.448276" vertical-offset="1502" max-vertical-offset="2329">
+          <caret line="131" column="46" selection-start-line="131" selection-start-column="34" selection-end-line="131" selection-end-column="46" />
           <folding>
             <element signature="e#2336#3016#0" expanded="false" />
             <element signature="e#2413#2609#0" expanded="false" />
@@ -300,8 +304,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/controllers/search.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5202822" vertical-offset="453" max-vertical-offset="1037">
-          <caret line="146" column="44" selection-start-line="146" selection-start-column="44" selection-end-line="146" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.20987654" vertical-offset="442" max-vertical-offset="1088">
+          <caret line="135" column="13" selection-start-line="135" selection-start-column="13" selection-end-line="135" selection-end-column="13" />
           <folding>
             <element signature="e#544#3449#0" expanded="false" />
             <element signature="e#3492#3835#0" expanded="false" />
