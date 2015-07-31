@@ -133,7 +133,7 @@ angular.module('dashboardApp')
         $scope.getOpeningsStartsWith = function(val)
         {
             val = $scope.capitalise(val);
-            return $http.get(service_base_url+'/select?q*%3A*&wt=json&indent=true&fl=City,JobTitle&start=0&records=20&facet=true&facet.field=City&facet.field=JobTitle&facet.prefix='+val+'&facet.limit=5', {
+            return $http.get(service_base_url+'/select?q*%3A*&wt=json&indent=true&fl=City,JobTitle&start=0&records=20&facet=true&facet.field=City&facet.field=JobTitle&facet.field=CompanyName&facet.prefix='+val+'&facet.limit=5', {
             }).then(function(response){
                 var newOne = new Array();
                 console.log(response.data.facet_counts.facet_fields);
@@ -144,6 +144,10 @@ angular.module('dashboardApp')
                 }
                 for(var d=0;d<response.data.facet_counts.facet_fields.JobTitle.length;d=d+2) {
                     newOne[q] =  response.data.facet_counts.facet_fields.JobTitle[d];
+                    q++;
+                }
+                for(var d=0;d<response.data.facet_counts.facet_fields.CompanyName.length;d=d+2) {
+                    newOne[q] =  response.data.facet_counts.facet_fields.CompanyName[d];
                     q++;
                 }
                 response.data = new Array();
