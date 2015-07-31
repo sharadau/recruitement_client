@@ -19,7 +19,7 @@ angular.module('dashboardApp')
         $scope.searchFor = '';
         $scope.displayResult = function(category, category_name, page, newSearch){
             var records = 10;
-            var start = (page - 1) * 10 + 1;
+            var start = (page - 1) * 10;
             var end = start + 9;
 
             if(category != '')
@@ -28,10 +28,12 @@ angular.module('dashboardApp')
                 $scope.searchFor = ' City '+ category_name;
                 $scope.categoryName = category_name;
                 $scope.searchText = '';
+               
                 SearchService.getOpeningsByCategory(category, category_name,start, records)
                     .success(function (data1) {
                         $scope.result = data1.response.docs;
-                        //alert('displayResult:' + JSON.stringify(data1));
+                      
+                        console.log('displayResult:' + JSON.stringify(data1));
                         $scope.resultCount = data1.response.numFound;
                         $scope.pagination_message = '';
                         $scope.currentPage = page;
@@ -51,7 +53,7 @@ angular.module('dashboardApp')
                     });
             }else
             {
-                //alert("in search text start:"+start+" end:"+end);
+               
                 $scope.searchFor = $scope.searchText;
                 $scope.categoryName = '';
                 if ($scope.searchText != '') {
