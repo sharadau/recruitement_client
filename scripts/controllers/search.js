@@ -19,7 +19,7 @@ angular.module('dashboardApp')
         $scope.searchFor = '';
         $scope.displayResult = function(category, category_name, page, newSearch){
             var records = 10;
-            var start = (page - 1) * 10 + 1;
+            var start = (page - 1) * 10;
             var end = start + 9;
 
             if(category != '')
