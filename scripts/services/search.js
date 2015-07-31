@@ -13,7 +13,26 @@
 angular.module('dashboardApp')
   .service('SearchService', function ($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
+        this.getOpeningsStartsWith = function (text) {
+            var successCallback, errorCallback;
+            var response = {
+                success: function (callback) {successCallback = callback; return response;},
+                error: function (callback) {errorCallback = callback; return response;}
+            };
+            //alert(service_base_url+'/select?q*%3A*&wt=json&indent=true&fl=City,JobTitle&facet=true&facet.field=City&facet.field=JobTitle&facet.prefix='+text);
+            $http.get(service_base_url+'/select?q*%3A*&wt=json&indent=true&fl=City,JobTitle&facet=true&facet.field=City&facet.field=JobTitle&facet.prefix=P'+text)
+                .success(function(item){
+                    successCallback(item);
+                })
+                .error(function(error){
+                    if (error) {
+                        errorCallback({msg: 'No openings exists'});
+                    }
+                });
 
+
+            return response;
+        };
         this.searchOpeningsByTechnology = function (technology, start, records) {
             var successCallback, errorCallback;
             var response = {
