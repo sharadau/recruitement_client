@@ -23,7 +23,7 @@
         <form name="searchform">
             <img style="height: 40px;width: 50px;background-color: #eee" src="images/global-search-icon.jpg">
             <label>Search IT Job Openings</label>
-            <input type="text" data-ng-model="searchText" style="width: 400px;" typeahead="text for text in getOpeningsStartsWith($viewValue)" typeahead-loading="loading" required="">
+            <input type="text" autofocus data-ng-model="searchText" style="width: 400px;" typeahead="text for text in getOpeningsStartsWith($viewValue)" typeahead-loading="loading" required="">
             <!--<input type="email" placeholder="Employees" typeahead="emailId for emailId in getEmployees($viewValue)" typeahead-loading="loading" class="form-control" required>-->
         <!--<button ng-disabled="searchform.$invalid" style="height: 25px;width: 30px;" ui-sref="searchResult({searchText:searchText})" type="submit">-->
             <button ng-disabled="searchform.$invalid" style="height: 25px;width: 30px;" data-ng-click="displayResult('','',1,true)" type="submit">

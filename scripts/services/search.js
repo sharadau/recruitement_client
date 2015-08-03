@@ -39,8 +39,8 @@ angular.module('dashboardApp')
                 success: function (callback) {successCallback = callback; return response;},
                 error: function (callback) {errorCallback = callback; return response;}
             };
-            //alert(service_base_url+'/select?q=*'+technology+'*&start='+start+'&rows='+records+'&wt=json&indent=true');
-            $http.get(service_base_url+'/select?q=*'+technology+'*&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
+            alert(service_base_url+'/select?q=City%3A*'+technology+'*&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=*&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.highlightMultiTerm=true&hl.snippets=4');
+            $http.get(service_base_url+'/select?q=City%3A*'+technology+'*&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=*&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.highlightMultiTerm=true&hl.snippets=4')
                 .success(function(item){
                     successCallback(item);
                 })
