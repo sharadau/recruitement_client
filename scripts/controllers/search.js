@@ -8,7 +8,7 @@
  * Controller of the dashboardApp
  */
 angular.module('dashboardApp')
-  .controller('SearchCtrl', function ($scope, $state, $stateParams, $http, SearchService) {
+  .controller('SearchCtrl', function ($scope, $state, $stateParams, $http, SearchService,$modal) {
         $scope.awesomeThings = [
             'HTML5 Boilerplate',
             'AngularJS',
@@ -159,5 +159,28 @@ angular.module('dashboardApp')
             });
 
         }
+        $scope.open = function (title,desc,applyurl) {
+
+            var modalInstance = $modal.open({
+                animation: true,
+                template: '<div class="modal-header"><h3 class="modal-title">'+title+'</h3><h4 class="modal-title"> <a target="_blank" href="'+applyurl+'">Apply</a></h4></div><div class="modal-body"><textarea rows="20" cols="140" readonly>'+desc+'</textarea></div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>',
+                //template: 'contents:'+contents,
+                controller: 'ModalInstanceCtrl',
+                size: 'lg'
+            });
+
+        };
     });
 
+// Please note that $modalInstance represents a modal window (instance) dependency.
+// It is not the same as the $modal service used above.
+angular.module('dashboardApp').controller('ModalInstanceCtrl', function ($scope, $modalInstance) {
+
+    $scope.ok = function () {
+        $modalInstance.close();
+    };
+
+    $scope.cancel = function () {
+        $modalInstance.dismiss('cancel');
+    };
+});

@@ -19,7 +19,7 @@
             </table>
         </td>
         <td width="100%" valign="top">
-<div class="container-fluid" style="align-content:center;background-color: white;height: 500px;margin-left:0px;margin-top: 0px">
+<div class="container-fluid" style="align-content:center;background-color: white;height: 550px;margin-left:0px;margin-top: 0px">
         <form name="searchform">
             <img style="height: 40px;width: 50px;background-color: #eee" src="images/global-search-icon.jpg">
             <label>Search IT Job Openings</label>
@@ -39,7 +39,7 @@
                         <td>Organization: {{job.CompanyName[0]}}</td> <td colspan="2">Location: {{job.City[0]}} {{job.State[0]}}</td>
                     </tr>
                     <tr>
-                        <td width="50%"><a ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl})">{{job.JobTitle[0]}} {{job.YearsOfExperience[0]}}</a></td>
+                        <td width="50%"><a ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0])">{{job.JobTitle[0]}} {{job.YearsOfExperience[0]}}</a></td>
                         <td colspan="2" width="40%">Job Category: {{job.JobCategory[0]}}</td><td><a target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></td>
                     </tr>
                     <tr>
