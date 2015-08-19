@@ -25,7 +25,8 @@ angular.module('dashboardApp')
             if(category != '')
             {
                 //alert("in cat search start:"+start+" end:"+end);
-                $scope.searchFor = ' City '+ category_name;
+                //$scope.searchFor = ' City '+ category_name;
+                $scope.searchFor = ' Company '+ category_name;
                 $scope.categoryName = category_name;
                 $scope.searchText = '';
                 SearchService.getOpeningsByCategory(category, category_name,start, records)
@@ -106,11 +107,13 @@ angular.module('dashboardApp')
                 $scope.categoryLimit = 5;
             }
 
-            SearchService.getAllJobByCity(limit)
+          //  SearchService.getAllJobByCity(limit)
+            SearchService.getAllJobByCompany(limit)
                 .success(function (data) {
-                    $scope.categoryList = data.facet_counts.facet_fields.City;
+                   // $scope.categoryList = data.facet_counts.facet_fields.City;
+                    $scope.categoryList = data.facet_counts.facet_fields.CompanyName;
 
-                    console.log("categories:" + JSON.stringify(data.facet_counts.facet_fields.City));
+                    console.log("categories:" + JSON.stringify(data.facet_counts.facet_fields.CompanyName));
                     $scope.categories = {};
                     var i = 0;
                     for (var c = 0; c < $scope.categoryList.length; c++) {
