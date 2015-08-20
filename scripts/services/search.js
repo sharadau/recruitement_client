@@ -160,7 +160,7 @@ angular.module('dashboardApp')
             {
                 limitCondition = '&facet.limit='+limit;
             }
-            alert(service_base_url+'/select?q=*%3A*&fl=CompanyName&wt=json&indent=true&facet=true&facet.field=CompanyName'+limitCondition);
+            //alert(service_base_url+'/select?q=*%3A*&fl=CompanyName&wt=json&indent=true&facet=true&facet.field=CompanyName'+limitCondition);
             $http.get(service_base_url+'/select?q=*%3A*&fl=CompanyName&wt=json&indent=true&facet=true&facet.field=CompanyName'+limitCondition)
                 .success(function(item){
                     successCallback(item);
