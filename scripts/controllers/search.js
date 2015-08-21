@@ -33,6 +33,14 @@ angular.module('dashboardApp')
                     .success(function (data1) {
                         $scope.result = data1.response.docs;
                         //alert('displayResult:' + JSON.stringify(data1));
+                        for(var m=0;m<$scope.result.length;m++)
+                        {
+                            if(typeof $scope.result[m].ApplyUrl != 'object')
+                            {
+                                $scope.result[m].ApplyUrl = new Array();
+                                $scope.result[m].ApplyUrl[0] = '';
+                            }
+                        }
                         $scope.resultCount = data1.response.numFound;
                         $scope.pagination_message = '';
                         $scope.currentPage = page;
@@ -163,10 +171,13 @@ angular.module('dashboardApp')
 
         }
         $scope.open = function (title,desc,applyurl) {
-
+            var appurllink = '';
+            if(applyurl != '') {
+                 appurllink = "Apply";
+            }
             var modalInstance = $modal.open({
                 animation: true,
-                template: '<div class="modal-header"><h3 class="modal-title">'+title+'</h3><h4 class="modal-title"> <a target="_blank" href="'+applyurl+'">Apply</a></h4></div><div class="modal-body"><textarea rows="20" cols="140" readonly>'+desc+'</textarea></div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>',
+                template: '<div class="modal-header"><h3 class="modal-title">'+title+'</h3><h4 class="modal-title"> <a target="_blank" href="'+applyurl+'">'+appurllink+'</a></h4></div><div class="modal-body"><textarea rows="20" cols="140" readonly>'+desc+'</textarea></div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>',
                 //template: 'contents:'+contents,
                 controller: 'ModalInstanceCtrl',
                 size: 'lg'

@@ -40,7 +40,7 @@
                     </tr>
                     <tr>
                         <td width="50%"><a ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0])">{{job.JobTitle[0]}}</a></td>
-                        <td colspan="2" width="40%">Job Category: {{job.JobCategory[0]}}</td><td><a target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></td>
+                        <td colspan="2" width="40%">Job Category: {{job.JobCategory[0]}}</td><td><a ng-if="job.ApplyUrl[0] != ''"  target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></td>
                     </tr>
                     <tr>
                         <td width="50%">Skills: {{job.Skills[0]}}</td>

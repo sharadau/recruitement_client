@@ -15,7 +15,6 @@ angular.module('dashboardApp')
       'Karma'
     ];
         $scope.JobDetailUrl = $stateParams.JobDetailUrl;
-        console.log('jobdetailsurl:'+$stateParams.JobDetailUrl);
                 SearchService.getJobByJobDetailUrl($stateParams.JobDetailUrl)
                     .success (function (data){
                     //console.log("data:"+JSON.stringify(data.response));
@@ -33,6 +32,11 @@ angular.module('dashboardApp')
                     {
                         $scope.jobDetails.CompanyName = {};
                         $scope.jobDetails.CompanyName[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.ApplyUrl != 'object')
+                    {
+                        $scope.jobDetails.ApplyUrl = {};
+                        $scope.jobDetails.ApplyUrl[0] = "";
                     }
                     if(typeof $scope.jobDetails.Industry != 'object')
                     {

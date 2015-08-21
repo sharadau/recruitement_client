@@ -12,7 +12,7 @@
                 <span class="navbar-brand subheader" style="color: #000066">{{jobDetails.JobTitle[0]}}</span></b></span>
             </div>
             <div class="nav navbar-brand navbar-right" style="padding-right: 50px;">
-               <b><a target="_blank" href="{{jobDetails.ApplyUrl[0]}}">Apply</a></b>
+               <b><a target="_blank" ng-if="jobDetails.ApplyUrl[0] != ''" href="{{jobDetails.ApplyUrl[0]}}">Apply</a></b>
             </div>
         </div>
     </div>
