@@ -17,6 +17,79 @@ angular.module('dashboardApp')
 
         $scope.result = {};
         $scope.searchFor = '';
+        $scope.checkEmpty = function() {
+            for(var k=0;k<$scope.result.length;k++)
+            {
+            if (typeof $scope.result[k].Address == 'object') {
+                $scope.result[k].Address[0] = $scope.result[k].Address[0] + ',';
+            } else {
+                $scope.result[k].Address = {};
+                $scope.result[k].Address[0] = '';
+            }
+
+            if (typeof $scope.result[k].CompanyName != 'object') {
+                $scope.result[k].CompanyName = {};
+                $scope.result[k].CompanyName[0] = "";
+            }
+                if (typeof $scope.result[k].Skills != 'object') {
+                    $scope.result[k].Skills = {};
+                    $scope.result[k].Skills[0] = "";
+                }
+            if (typeof $scope.result[k].ApplyUrl != 'object') {
+                $scope.result[k].ApplyUrl = {};
+                $scope.result[k].ApplyUrl[0] = "";
+            }
+            if (typeof $scope.result[k].Industry != 'object') {
+                $scope.result[k].Industry = {};
+                $scope.result[k].Industry[0] = "";
+            }
+
+            if (typeof $scope.result[k].JobCategory != 'object') {
+                $scope.result[k].JobCategory = {};
+                $scope.result[k].JobCategory[0] = "";
+            }
+            if (typeof $scope.result[k].Role != 'object') {
+                $scope.result[k].Role = {};
+                $scope.result[k].Role[0] = "";
+            }
+            if (typeof $scope.result[k].YearsOfExperience != 'object') {
+                $scope.result[k].YearsOfExperience = {};
+                $scope.result[k].YearsOfExperience[0] = "";
+            }
+            if (typeof $scope.result[k].Department != 'object') {
+                $scope.result[k].Department = {};
+                $scope.result[k].Department[0] = "";
+            }
+            if (typeof $scope.result[k].Education != 'object') {
+                $scope.result[k].Education = {};
+                $scope.result[k].Education[0] = "";
+            }
+            if (typeof $scope.result[k].Website != 'object') {
+                $scope.result[k].Website = {};
+                $scope.result[k].Website[0] = "";
+            }
+            if (typeof $scope.result[k].Salary != 'object') {
+                $scope.result[k].Salary = {};
+                $scope.result[k].Salary[0] = "";
+            }
+            if (typeof $scope.result[k].DatePosted != 'object') {
+                $scope.result[k].DatePosted = {};
+                $scope.result[k].DatePosted[0] = "";
+            }
+            if (typeof $scope.result[k].ContactEmailAddress != 'object') {
+                $scope.result[k].ContactEmailAddress = {};
+                $scope.result[k].ContactEmailAddress[0] = "";
+            }
+            if (typeof $scope.result[k].CompanyProfile != 'object') {
+                $scope.result[k].CompanyProfile = {};
+                $scope.result[k].CompanyProfile[0] = "";
+            }
+            if (typeof $scope.result[k].City != 'object') {
+                $scope.result[k].City = {};
+                $scope.result[k].City[0] = "";
+            }
+        }
+        };
         $scope.displayResult = function(category, category_name, page, newSearch){
             var records = 10;
             var start = (page - 1) * 10;
@@ -32,7 +105,6 @@ angular.module('dashboardApp')
                 SearchService.getOpeningsByCategory(category, category_name,start, records)
                     .success(function (data1) {
                         $scope.result = data1.response.docs;
-                        //alert('displayResult:' + JSON.stringify(data1));
                         for(var m=0;m<$scope.result.length;m++)
                         {
                             if(typeof $scope.result[m].ApplyUrl != 'object')
@@ -40,7 +112,15 @@ angular.module('dashboardApp')
                                 $scope.result[m].ApplyUrl = new Array();
                                 $scope.result[m].ApplyUrl[0] = '';
                             }
+                            $scope.result[m].JobDetailUrl1 = {};
+                            if(typeof $scope.result[m].JobDetailUrl == 'object')
+                            {
+                                $scope.result[m].JobDetailUrl1[0] = $scope.result[m].JobDetailUrl[0];
+                                $scope.result[m].JobDetailUrl1[0] = $scope.result[m].JobDetailUrl1[0].replace(/%2F/g,"needencoding");
+                            }
+
                         }
+                        $scope.checkEmpty();
                         $scope.resultCount = data1.response.numFound;
                         $scope.pagination_message = '';
                         $scope.currentPage = page;
@@ -60,7 +140,6 @@ angular.module('dashboardApp')
                     });
             }else
             {
-                //alert("in search text start:"+start+" end:"+end);
                 $scope.searchFor = $scope.searchText;
                 $scope.categoryName = '';
                 if ($scope.searchText != '') {
@@ -68,6 +147,21 @@ angular.module('dashboardApp')
                     SearchService.searchOpeningsByTechnology($scope.searchText, start, records)
                         .success(function (data) {
                             $scope.result = data.response.docs;
+                            for(var m=0;m<$scope.result.length;m++)
+                            {
+                                if(typeof $scope.result[m].ApplyUrl != 'object')
+                                {
+                                    $scope.result[m].ApplyUrl = new Array();
+                                    $scope.result[m].ApplyUrl[0] = '';
+                                }
+                                $scope.result[m].JobDetailUrl1 = {};
+                                if(typeof $scope.result[m].JobDetailUrl == 'object')
+                                {
+                                    $scope.result[m].JobDetailUrl1[0] = $scope.result[m].JobDetailUrl[0];
+                                    $scope.result[m].JobDetailUrl1[0] = $scope.result[m].JobDetailUrl1[0].replace(/%2F/g,"needencoding");
+                                }
+                            }
+                            $scope.checkEmpty();
                             $scope.resultCount = data.response.numFound;
                             $scope.pagination_message = '';
                             $scope.currentPage = page;
@@ -170,14 +264,14 @@ angular.module('dashboardApp')
             });
 
         }
-        $scope.open = function (title,desc,applyurl) {
+        $scope.open = function (title,desc,applyurl,jobDetailsUrl) {
             var appurllink = '';
             if(applyurl != '') {
                  appurllink = "Apply";
             }
             var modalInstance = $modal.open({
                 animation: true,
-                template: '<div class="modal-header"><h3 class="modal-title">'+title+'</h3><h4 class="modal-title"> <a target="_blank" href="'+applyurl+'">'+appurllink+'</a></h4></div><div class="modal-body"><textarea rows="20" cols="140" readonly>'+desc+'</textarea></div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>',
+                template: '<div class="modal-header"><h3 class="modal-title">'+title+'</h3><h4 class="modal-title"> <a target="_blank" href="'+applyurl+'">'+appurllink+'</a></h4></div><div class="modal-body"><textarea rows="20" cols="140" readonly>'+desc+'</textarea><a target="_blank" href="'+jobDetailsUrl+'">'+jobDetailsUrl+'</a></h4></div><div class="modal-footer"><button class="btn btn-primary" ng-click="ok()">OK</button></div>',
                 //template: 'contents:'+contents,
                 controller: 'ModalInstanceCtrl',
                 size: 'lg'

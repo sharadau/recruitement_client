@@ -78,9 +78,9 @@ angular.module('dashboardApp')
                 success: function (callback) {successCallback = callback; return response;},
                 error: function (callback) {errorCallback = callback; return response;}
             };
-            url = url.replace(/ /g, "+");
-            url = url.replace(/&/g, "%26");
 
+            url = encodeURIComponent(url);
+            url = url.replace(/needencoding/g, "%252F");
             $http.get(service_base_url+'/select?q=JobDetailUrl%3A%22'+url+'%22&wt=json&indent=true')
                 .success(function(item){
                     successCallback(item);
@@ -103,8 +103,9 @@ angular.module('dashboardApp')
             };
 
             var catArray = category_name.split(',');
-            category_name = category_name.replace(/ /g, "+");
-            category_name = category_name.replace(/&/g, "%26");
+           // category_name = category_name.replace(/ /g, "+");
+           // category_name = category_name.replace(/&/g, "%26");
+            category_name = encodeURIComponent(category_name);
            // alert(service_base_url + '/select?q=CompanyName%3A%22' + category_name + '%22&start=' + start + '&rows=' + records + '&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>');
             //$http.get(service_base_url+'/select?q=City%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
             $http.get(service_base_url+'/select?q=CompanyName%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')

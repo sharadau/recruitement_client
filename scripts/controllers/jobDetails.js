@@ -84,6 +84,25 @@ angular.module('dashboardApp')
                         $scope.jobDetails.DatePosted = {};
                         $scope.jobDetails.DatePosted[0] = "";
                     }
+                    if(typeof $scope.jobDetails.ContactEmailAddress != 'object')
+                    {
+                        $scope.jobDetails.ContactEmailAddress = {};
+                        $scope.jobDetails.ContactEmailAddress[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.CompanyProfile != 'object')
+                    {
+                        $scope.jobDetails.CompanyProfile = {};
+                        $scope.jobDetails.CompanyProfile[0] = "";
+                    }
+                    if(typeof $scope.jobDetails.City != 'object')
+                    {
+                        $scope.jobDetails.City = {};
+                        $scope.jobDetails.City[0] = "";
+                    }
+                    if (typeof $scope.jobDetails.Skills != 'object') {
+                        $scope.jobDetails.Skills = {};
+                        $scope.jobDetails.Skills[0] = "";
+                    }
                 })
                     .error (function (error){
                     console.log (error.msg);});

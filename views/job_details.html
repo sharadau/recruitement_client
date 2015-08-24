@@ -22,13 +22,13 @@
             <label class="control-label" ng-if="jobDetails.CompanyName[0] != ''">Company: </label> {{jobDetails.CompanyName[0]}} <label class="control-label" ng-if="jobDetails.Industry[0] != ''">Industry:</label> {{jobDetails.Industry[0]}}
         </div>
         <div class="panel-wrapper">
-            <label class="control-label">Location: </label> {{jobDetails.Address[0]}} {{jobDetails.City[0]}} {{jobDetails.State[0]}}
+            <label class="control-label" ng-if="jobDetails.City[0] != ''">Location: </label> {{jobDetails.Address[0]}} {{jobDetails.City[0]}} {{jobDetails.State[0]}}
         </div>
         <div class="panel-wrapper">
-            <label class="control-label" ng-if="jobDetails.JobCategory[0] != ''">Category: </label> {{jobDetails.JobCategory[0]}} <label class="control-label" ng-if="jobDetails.Department[0] != ''">Department:</label> {{jobDetails.Department[0]}} Role: {{jobDetails.Role[0]}}
+            <label class="control-label" ng-if="jobDetails.JobCategory[0] != ''">Category: </label> {{jobDetails.JobCategory[0]}} <label class="control-label" ng-if="jobDetails.Department[0] != ''">Department:</label> {{jobDetails.Department[0]}} <label class="control-label" ng-if="jobDetails.Role[0] != ''">Role:</label> {{jobDetails.Role[0]}}
         </div>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.YearsOfExperience[0] != ''">Experience: </label> {{jobDetails.YearsOfExperience[0]}} <label class="control-label" ng-if="   jobDetails.Education[0] != ''"> Education:</label> {{jobDetails.Education[0]}}
+        <label class="control-label" ng-if="jobDetails.YearsOfExperience[0] != ''">Experience: </label> {{jobDetails.YearsOfExperience[0]}} <label class="control-label" ng-if="jobDetails.Education[0] != ''"> Education:</label> {{jobDetails.Education[0]}}
     </div>
     <div class="panel-wrapper">
         <label class="control-label" ng-if="jobDetails.CompanyProfile[0] != ''">Company Profile: </label> {{jobDetails.Website[0]}}{{jobDetails.CompanyProfile[0]}}
@@ -40,11 +40,11 @@
         <label class="control-label" ng-if="jobDetails.DatePosted[0] != ''">Date Posted: </label> {{jobDetails.DatePosted[0]}}
     </div>
     <div class="panel-wrapper">
-        <label class="control-label" >Contact: </label> {{jobDetails.ContactName[0]}} {{jobDetails.ContactEmailAddress[0]}}
+        <label class="control-label" ng-if="jobDetails.ContactEmailAddress[0] != ''">Contact: </label> {{jobDetails.ContactName[0]}} {{jobDetails.ContactEmailAddress[0]}}
     </div>
     <br/>
     <div class="panel-wrapper">
-        <label class="control-label">Description:</label> {{jobDetails.JobDescription[0]}}
+        <label class="control-label" ng-if="jobDetails.JobDescription[0] != ''">Description:</label> {{jobDetails.JobDescription[0]}}
     </div>
 
 </div>
