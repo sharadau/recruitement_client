@@ -78,6 +78,9 @@ angular.module('dashboardApp')
                 success: function (callback) {successCallback = callback; return response;},
                 error: function (callback) {errorCallback = callback; return response;}
             };
+            url = url.replace(/ /g, "+");
+            url = url.replace(/&/g, "%26");
+
             $http.get(service_base_url+'/select?q=JobDetailUrl%3A%22'+url+'%22&wt=json&indent=true')
                 .success(function(item){
                     successCallback(item);
