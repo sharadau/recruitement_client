@@ -1,67 +1,70 @@
-<table border="0">
-    <tr>
-        <td valign="top" width="20%">
-            <table>
-            <tr>
-                <td><b>Company</b></td>
-            </tr>
-                <tr><td>
-                    <table width="100%" data-ng-repeat="category in categories">
-                        <tr>
-                         <td><a data-ng-click="displayResult('CompanyName',category.category,1,true)">{{category.category}} ({{category.count}})</a></td>
-                        </tr>
-                    </table>
-                </td>
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-3">
+            <h4>
+                Companies
+            </h4>
+            <table width="100%" data-ng-repeat="category in categories">
+                <tr>
+                    <td><a data-ng-click="displayResult('CompanyName',category.category,1,true)">{{category.category}} ({{category.count}})</a></td>
                 </tr>
-                <tr><td>&nbsp;</td></tr>
+            </table>
+            <br/>
+            <table>
                 <tr><td ng-if="categoryLimit == 5"><a data-ng-click="displayAllCities(0)">More...</a></td></tr>
                 <tr><td ng-if="categoryLimit == 0"><a data-ng-click="displayAllCities(5)">Less...</a></td></tr>
             </table>
-        </td>
-        <td width="100%" valign="top">
-<div class="container-fluid" style="align-content:center;background-color: white;height: 550px;margin-left:0px;margin-top: 0px">
-        <form name="searchform">
-            <img style="height: 40px;width: 50px;background-color: #eee" src="images/global-search-icon.jpg">
-            <label>Search IT Job Openings</label>
-            <input type="text" autofocus data-ng-model="searchText" style="width: 400px;" typeahead="text for text in getOpeningsStartsWith($viewValue)" typeahead-loading="loading" required="">
-            <!--<input type="email" placeholder="Employees" typeahead="emailId for emailId in getEmployees($viewValue)" typeahead-loading="loading" class="form-control" required>-->
-        <!--<button ng-disabled="searchform.$invalid" style="height: 25px;width: 30px;" ui-sref="searchResult({searchText:searchText})" type="submit">-->
-            <button ng-disabled="searchform.$invalid" style="height: 25px;width: 30px;" data-ng-click="displayResult('','',1,true)" type="submit">
-            <span class="glyphicon glyphicon-search" ></span>
-        </button>
-        </form>
-    <span class="navbar-brand subheader" style="color: #000066" ng-show="resultCount > 0">Search Result for <b><span color="#999">{{searchFor}}</span></b></span>
-    <div style="height: 500px">
-        <table width="100%" class="table table-hover table-responsive table-condensed tab-content" data-ng-repeat="job in result">
-            <td>
-                <table width="100%">
-                    <tr>
-                        <td style="width:90%">
-                            <label class="control-label"><a ng-if="job.JobTitle[0] != ''" ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0],job.JobDetailUrl[0])">{{job.JobTitle[0]}}</a></label>
-                            <span ng-if="job.CompanyName[0] != ''">, <label class="control-label">Organization:</label> {{job.CompanyName[0]}}</span>
-                             <span ng-if="job.City[0] != ''">, <label class="control-label">Location:</label> {{job.City[0]}} {{job.State[0]}}</span>
-                             <span ng-if="job.JobCategory[0] != ''">, <label class="control-label">Job Category:</label> {{job.JobCategory[0]}}</span>
-                            <span ng-if="job.Skills[0] != ''">, <label class="control-label">Skills:</label> {{job.Skills[0]}}</span>
-                            <span ng-if="job.YearsOfExperience[0] != ''">, <label class="control-label">Experience:</label> {{job.YearsOfExperience[0]}}</span>
-                            <span ng-if="job.DatePosted[0] != ''">, <label class="control-label">Date Posted:</label> {{job.DatePosted[0]}}</span>
-                            <span ng-if="job.JobDetailUrl1[0] != ''">, <a target="_blank" ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl1[0]})" > Read More... </a></span>
-                        </td>
-                        <td style="width:10%"><span ng-if="job.ApplyUrl[0] != ''"><a ng-if="job.ApplyUrl[0] != ''"  target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></span></td>
-                    </tr>
-                </table>
-            </td>
-        </table>
-        <div class="nav navbar-nav navbar-right" style="padding-right: 30px;" ng-show="resultCount > 0" >
-            <table>
-                <tr>
-                    <td style="padding-right: 5px;">{{pagination_message}}</td>
-                    <td><pagination total-items="resultCount" ng-model="currentPage" ng-change="pageChanged()"></pagination></td>
-                </tr>
-            </table>
+        </div>
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-12">
+                    <form name="searchform">
+                        <img style="height: 40px;width: 50px;background-color: #eee" src="images/global-search-icon.jpg">
+                        <label>Search IT Job Openings</label>
+                        <input type="text" autofocus data-ng-model="searchText" style="width: 40%;" typeahead="text for text in getOpeningsStartsWith($viewValue)" typeahead-loading="loading" required="">
+                        <button ng-disabled="searchform.$invalid" style="height: 25px;width: 3%;" data-ng-click="displayResult('','',1,true)" type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"><span class="navbar-brand subheader" style="color: #000066" ng-show="resultCount > 0">Search Result for <b><span color="#999">{{searchFor}}</span></b></span>
+                    <div >
+                        <table width="100%" class="table table-hover table-responsive table-condensed tab-content" data-ng-repeat="job in result">
+                            <td>
+                                <table width="100%">
+                                    <tr>
+                                        <td style="width:90%">
+                                            <label class="control-label"><a ng-if="job.JobTitle[0] != ''" ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0],job.JobDetailUrl[0])">{{job.JobTitle[0]}}</a></label>
+                                            <span ng-if="job.CompanyName[0] != ''">, <label class="control-label">Organization:</label> {{job.CompanyName[0]}}</span>
+                                            <span ng-if="job.City[0] != ''">, <label class="control-label">Location:</label> {{job.City[0]}} {{job.State[0]}}</span>
+                                            <span ng-if="job.JobCategory[0] != ''">, <label class="control-label">Job Category:</label> {{job.JobCategory[0]}}</span>
+                                            <span ng-if="job.Skills[0] != ''">, <label class="control-label">Skills:</label> {{job.Skills[0]}}</span>
+                                            <span ng-if="job.YearsOfExperience[0] != ''">, <label class="control-label">Experience:</label> {{job.YearsOfExperience[0]}}</span>
+                                            <span ng-if="job.DatePosted[0] != ''">, <label class="control-label">Date Posted:</label> {{job.DatePosted[0]}}</span>
+                                            <span ng-if="job.JobDetailUrl1[0] != ''">, <a target="_blank" ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl1[0]})" > Read More... </a></span>
+                                        </td>
+                                        <td style="width:10%"><span ng-if="job.ApplyUrl[0] != ''"><a ng-if="job.ApplyUrl[0] != ''"  target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></span></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </table>
+                        <div class="nav navbar-nav navbar-right" style="padding-right: 30px;" ng-show="resultCount > 0" >
+                            <table>
+                                <tr>
+                                    <td style="padding-right: 5px;">{{pagination_message}}</td>
+                                    <td><pagination total-items="resultCount" ng-model="currentPage" ng-change="pageChanged()"></pagination></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-
 </div>
-    </td>
-    </tr>
-</table>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
