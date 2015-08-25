@@ -37,7 +37,7 @@
                 <table width="100%">
                     <tr>
                         <td style="width:90%">
-                            <a ng-if="job.JobTitle[0] != ''" ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0],job.JobDetailUrl[0])">{{job.JobTitle[0]}}</a>
+                            <label class="control-label"><a ng-if="job.JobTitle[0] != ''" ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0],job.JobDetailUrl[0])">{{job.JobTitle[0]}}</a></label>
                             <span ng-if="job.CompanyName[0] != ''">, <label class="control-label">Organization:</label> {{job.CompanyName[0]}}</span>
                              <span ng-if="job.City[0] != ''">, <label class="control-label">Location:</label> {{job.City[0]}} {{job.State[0]}}</span>
                              <span ng-if="job.JobCategory[0] != ''">, <label class="control-label">Job Category:</label> {{job.JobCategory[0]}}</span>

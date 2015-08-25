@@ -46,5 +46,9 @@
     <div class="panel-wrapper">
         <label class="control-label" ng-if="jobDetails.JobDescription[0] != ''">Description:</label> {{jobDetails.JobDescription[0]}}
     </div>
+    <br/>
+    <div class="panel-wrapper">
+        <label class="control-label" ng-if="jobDetails.JobDetailUrl[0] != ''">Job Details Url: </label> <a target="_blank" href="{{jobDetails.JobDetailUrl[0]}}">{{jobDetails.JobDetailUrl[0]}}</a>
+    </div>
 
 </div>
