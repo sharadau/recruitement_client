@@ -106,7 +106,7 @@ angular.module('dashboardApp')
            // category_name = category_name.replace(/ /g, "+");
            // category_name = category_name.replace(/&/g, "%26");
             category_name = encodeURIComponent(category_name);
-           // alert(service_base_url + '/select?q=CompanyName%3A%22' + category_name + '%22&start=' + start + '&rows=' + records + '&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>');
+            //alert(service_base_url+'/select?q=CompanyName%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>');
             //$http.get(service_base_url+'/select?q=City%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
             $http.get(service_base_url+'/select?q=CompanyName%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
                 .success(function(item){

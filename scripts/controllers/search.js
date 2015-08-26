@@ -93,7 +93,7 @@ angular.module('dashboardApp')
         $scope.displayResult = function(category, category_name, page, newSearch){
             var records = 10;
             var start = (page - 1) * 10;
-            var end = start + 9;
+            var end = start + 10;
 
             if(category != '')
             {
@@ -133,7 +133,7 @@ angular.module('dashboardApp')
                         if ($scope.resultCount == 0) {
                             $scope.pagination_message = "No records Found";
                         } else {
-                            $scope.pagination_message = 'Showing ' + start + ' - ' + end + ' Records of ' + $scope.resultCount;
+                            $scope.pagination_message = 'Showing ' + (start + 1) + ' - ' + end + ' Records of ' + $scope.resultCount;
                         }
                     }).error(function (error) {
                         console.log(error.msg);
@@ -175,7 +175,7 @@ angular.module('dashboardApp')
                             if ($scope.resultCount == 0) {
                                 $scope.pagination_message = "No records Found";
                             } else {
-                                $scope.pagination_message = 'Showing '+start+' - ' + end + ' Records of ' + $scope.resultCount;
+                                $scope.pagination_message = 'Showing '+(start+1)+' - ' + end + ' Records of ' + $scope.resultCount;
                             }
                         })
                         .error(function (error) {
