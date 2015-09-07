@@ -9,46 +9,46 @@
     <div class="navbar navbar-default" role="navigation">
         <div class="container">
             <div class="navbar-header">
-                <span class="navbar-brand subheader" style="color: #000066">{{jobDetails.JobTitle[0]}}</span></b></span>
+                <span class="navbar-brand subheader" style="color: #000066">{{jobDetails.JobTitle}}</span></b></span>
             </div>
             <div class="nav navbar-brand navbar-right" style="padding-right: 50px;">
-               <b><a target="_blank" ng-if="jobDetails.ApplyUrl[0] != ''" href="{{jobDetails.ApplyUrl[0]}}">Apply</a></b>
+               <b><a target="_blank" ng-if="jobDetails.ApplyUrl != ''" href="{{jobDetails.ApplyUrl}}">Apply</a></b>
             </div>
         </div>
     </div>
 </div>
 <div class="container" style="height: 450px">
         <div class="panel-wrapper" >
-            <label class="control-label" ng-if="jobDetails.CompanyName[0] != ''">Company: </label> {{jobDetails.CompanyName[0]}} <label class="control-label" ng-if="jobDetails.Industry[0] != ''">Industry:</label> {{jobDetails.Industry[0]}}
+            <label class="control-label" ng-if="jobDetails.CompanyName != ''">Company: </label> {{jobDetails.CompanyName}} <label class="control-label" ng-if="jobDetails.Industry != ''">Industry:</label> {{jobDetails.Industry}}
         </div>
         <div class="panel-wrapper">
-            <label class="control-label" ng-if="jobDetails.City[0] != ''">Location: </label> {{jobDetails.Address[0]}} {{jobDetails.City[0]}} {{jobDetails.State[0]}}
+            <label class="control-label" ng-if="jobDetails.City != ''">Location: </label> {{jobDetails.Address}} {{jobDetails.City}} {{jobDetails.State}}
         </div>
         <div class="panel-wrapper">
-            <label class="control-label" ng-if="jobDetails.JobCategory[0] != ''">Category: </label> {{jobDetails.JobCategory[0]}} <label class="control-label" ng-if="jobDetails.Department[0] != ''">Department:</label> {{jobDetails.Department[0]}} <label class="control-label" ng-if="jobDetails.Role[0] != ''">Role:</label> {{jobDetails.Role[0]}}
+            <label class="control-label" ng-if="jobDetails.JobCategory != ''">Category: </label> {{jobDetails.JobCategory}} <label class="control-label" ng-if="jobDetails.Department != ''">Department:</label> {{jobDetails.Department}} <label class="control-label" ng-if="jobDetails.Role != ''">Role:</label> {{jobDetails.Role}}
         </div>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.YearsOfExperience[0] != ''">Experience: </label> {{jobDetails.YearsOfExperience[0]}} <label class="control-label" ng-if="jobDetails.Education[0] != ''"> Education:</label> {{jobDetails.Education[0]}}
+        <label class="control-label" ng-if="jobDetails.YearsOfExperience != ''">Experience: </label> {{jobDetails.YearsOfExperience}} <label class="control-label" ng-if="jobDetails.Education != ''"> Education:</label> {{jobDetails.Education}}
     </div>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.CompanyProfile[0] != ''">Company Profile: </label> {{jobDetails.Website[0]}}{{jobDetails.CompanyProfile[0]}}
+        <label class="control-label" ng-if="jobDetails.CompanyProfile != ''">Company Profile: </label> {{jobDetails.Website}}{{jobDetails.CompanyProfile}}
     </div>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.Salary[0] != ''">Salary: </label> {{jobDetails.Salary[0]}}
+        <label class="control-label" ng-if="jobDetails.Salary != ''">Salary: </label> {{jobDetails.Salary}}
     </div>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.DatePosted[0] != ''">Date Posted: </label> {{jobDetails.DatePosted[0]}}
+        <label class="control-label" ng-if="jobDetails.DatePosted != ''">Date Posted: </label> {{jobDetails.DatePosted}}
     </div>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.ContactEmailAddress[0] != ''">Contact: </label> {{jobDetails.ContactName[0]}} {{jobDetails.ContactEmailAddress[0]}}
+        <label class="control-label" ng-if="jobDetails.ContactEmailAddress != ''">Contact: </label> {{jobDetails.ContactName}} {{jobDetails.ContactEmailAddress}}
     </div>
     <br/>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.JobDescription[0] != ''">Description:</label> {{jobDetails.JobDescription[0]}}
+        <label class="control-label" ng-if="jobDetails.JobDescription != ''">Description:</label> {{jobDetails.JobDescription}}
     </div>
     <br/>
     <div class="panel-wrapper">
-        <label class="control-label" ng-if="jobDetails.JobDetailUrl[0] != ''">Job Details Url: </label> <a target="_blank" href="{{jobDetails.JobDetailUrl[0]}}">{{jobDetails.JobDetailUrl[0]}}</a>
+        <label class="control-label" ng-if="jobDetails.JobDetailUrl != ''">Job Details Url: </label> <a target="_blank" href="{{jobDetails.JobDetailUrl}}">{{jobDetails.JobDetailUrl}}</a>
     </div>
 
 </div>

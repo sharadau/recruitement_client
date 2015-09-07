@@ -30,22 +30,24 @@
             </div>
             <div class="row">
                 <div class="col-md-12"><span class="navbar-brand subheader" style="color: #000066" ng-show="resultCount > 0">Search Result for <b><span color="#999">{{searchFor}}</span></b></span>
+                    <span ng-show="resultCount > 0" class="navbar-right" style="margin-top: 20px;margin-right: 10px">Freshness</span>
                     <div >
                         <table width="100%" class="table table-hover table-responsive table-condensed tab-content" data-ng-repeat="job in result">
                             <td>
                                 <table width="100%">
                                     <tr>
-                                        <td style="width:90%">
-                                            <label class="control-label"><a ng-if="job.JobTitle[0] != ''" ng-click="open(job.JobTitle[0],job.JobDescription[0],job.ApplyUrl[0],job.JobDetailUrl[0])">{{job.JobTitle[0]}}</a></label>
-                                            <span ng-if="job.CompanyName[0] != ''">, <label class="control-label">Organization:</label> {{job.CompanyName[0]}}</span>
-                                            <span ng-if="job.City[0] != ''">, <label class="control-label">Location:</label> {{job.City[0]}} {{job.State[0]}}</span>
-                                            <span ng-if="job.JobCategory[0] != ''">, <label class="control-label">Job Category:</label> {{job.JobCategory[0]}}</span>
-                                            <span ng-if="job.Skills[0] != ''">, <label class="control-label">Skills:</label> {{job.Skills[0]}}</span>
-                                            <span ng-if="job.YearsOfExperience[0] != ''">, <label class="control-label">Experience:</label> {{job.YearsOfExperience[0]}}</span>
-                                            <span ng-if="job.DatePosted[0] != ''">, <label class="control-label">Date Posted:</label> {{job.DatePosted[0]}}</span>
-                                            <span ng-if="job.JobDetailUrl1[0] != ''">, <a target="_blank" ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl1[0]})" > Read More... </a></span>
+                                        <td style="width:85%">
+                                            <label class="control-label"><a ng-if="job.JobTitle != ''" ng-click="open(job.JobTitle,job.JobDescription,job.ApplyUrl,job.JobDetailUrl)"> <span ng-bind-html="job.JobTitle1"></span></a></label>
+                                            <span ng-if="job.CompanyName != ''">, <label class="control-label">Organization:</label> <span ng-bind-html="job.CompanyName"></span></span>
+                                            <span ng-if="job.City != ''">, <label class="control-label">Location:</label> <span ng-bind-html="job.City"></span> {{job.State}}</span>
+                                            <span ng-if="job.JobCategory != ''">, <label class="control-label">Job Category:</label> <span ng-bind-html="job.JobCategory"></span></span>
+                                            <span ng-if="job.Skills != ''">, <label class="control-label">Skills:</label> <span ng-bind-html="job.Skills"></span></span>
+                                            <span ng-if="job.YearsOfExperience != ''">, <label class="control-label">Experience:</label> {{job.YearsOfExperience}}</span>
+                                            <span ng-if="job.DatePosted != ''">, <label class="control-label">Date Posted:</label> {{job.DatePosted}}</span>
+                                            <span ng-if="job.JobDetailUrl1 != ''">, <a target="_blank" ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl1})" > Read More... </a></span>
                                         </td>
-                                        <td style="width:10%"><span ng-if="job.ApplyUrl[0] != ''"><a ng-if="job.ApplyUrl[0] != ''"  target="_blank" href="{{job.ApplyUrl[0]}}">Apply</a></span></td>
+                                        <td style="width:5%"><span ng-if="job.ApplyUrl != ''"><a ng-if="job.ApplyUrl != ''"  target="_blank" href="{{job.ApplyUrl}}">Apply</a></span></td>
+                                        <td style="width:5%">2 days</td>
                                     </tr>
                                 </table>
                             </td>

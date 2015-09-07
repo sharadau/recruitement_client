@@ -17,91 +17,91 @@ angular.module('dashboardApp')
         $scope.JobDetailUrl = $stateParams.JobDetailUrl;
                 SearchService.getJobByJobDetailUrl($stateParams.JobDetailUrl)
                     .success (function (data){
-                    //console.log("data:"+JSON.stringify(data.response));
+                    console.log("data:"+JSON.stringify(data.response));
 
                     $scope.jobDetails = data.response.docs[0];
-                    if(typeof $scope.jobDetails.Address == 'object')
+                    if(typeof $scope.jobDetails.Address == 'string')
                     {
-                        $scope.jobDetails.Address[0] = $scope.jobDetails.Address[0] + ',';
+                        $scope.jobDetails.Address = $scope.jobDetails.Address + ',';
                     }else{
                         $scope.jobDetails.Address = {};
-                        $scope.jobDetails.Address[0] = '';
+                        $scope.jobDetails.Address = '';
                     }
 
-                    if(typeof $scope.jobDetails.CompanyName != 'object')
+                    if(typeof $scope.jobDetails.CompanyName != 'string')
                     {
                         $scope.jobDetails.CompanyName = {};
-                        $scope.jobDetails.CompanyName[0] = "";
+                        $scope.jobDetails.CompanyName = "";
                     }
-                    if(typeof $scope.jobDetails.ApplyUrl != 'object')
+                    if(typeof $scope.jobDetails.ApplyUrl != 'string')
                     {
                         $scope.jobDetails.ApplyUrl = {};
-                        $scope.jobDetails.ApplyUrl[0] = "";
+                        $scope.jobDetails.ApplyUrl = "";
                     }
-                    if(typeof $scope.jobDetails.Industry != 'object')
+                    if(typeof $scope.jobDetails.Industry != 'string')
                     {
                         $scope.jobDetails.Industry = {};
-                        $scope.jobDetails.Industry[0] = "";
+                        $scope.jobDetails.Industry = "";
                     }
 
-                    if(typeof $scope.jobDetails.JobCategory != 'object')
+                    if(typeof $scope.jobDetails.JobCategory != 'string')
                     {
                         $scope.jobDetails.JobCategory = {};
-                        $scope.jobDetails.JobCategory[0] = "";
+                        $scope.jobDetails.JobCategory = "";
                     }
-                    if(typeof $scope.jobDetails.Role != 'object')
+                    if(typeof $scope.jobDetails.Role != 'string')
                     {
                         $scope.jobDetails.Role = {};
-                        $scope.jobDetails.Role[0] = "";
+                        $scope.jobDetails.Role = "";
                     }
-                    if(typeof $scope.jobDetails.YearsOfExperience != 'object')
+                    if(typeof $scope.jobDetails.YearsOfExperience != 'string')
                     {
                         $scope.jobDetails.YearsOfExperience = {};
-                        $scope.jobDetails.YearsOfExperience[0] = "";
+                        $scope.jobDetails.YearsOfExperience = "";
                     }
-                    if(typeof $scope.jobDetails.Department != 'object')
+                    if(typeof $scope.jobDetails.Department != 'string')
                     {
                         $scope.jobDetails.Department = {};
-                        $scope.jobDetails.Department[0] = "";
+                        $scope.jobDetails.Department = "";
                     }
-                    if(typeof $scope.jobDetails.Education != 'object')
+                    if(typeof $scope.jobDetails.Education != 'string')
                     {
                         $scope.jobDetails.Education = {};
-                        $scope.jobDetails.Education[0] = "";
+                        $scope.jobDetails.Education = "";
                     }
-                    if(typeof $scope.jobDetails.Website != 'object')
+                    if(typeof $scope.jobDetails.Website != 'string')
                     {
                         $scope.jobDetails.Website = {};
-                        $scope.jobDetails.Website[0] = "";
+                        $scope.jobDetails.Website = "";
                     }
-                    if(typeof $scope.jobDetails.Salary != 'object')
+                    if(typeof $scope.jobDetails.Salary != 'string')
                     {
                         $scope.jobDetails.Salary = {};
-                        $scope.jobDetails.Salary[0] = "";
+                        $scope.jobDetails.Salary = "";
                     }
-                    if(typeof $scope.jobDetails.DatePosted != 'object')
+                    if(typeof $scope.jobDetails.DatePosted != 'string')
                     {
                         $scope.jobDetails.DatePosted = {};
-                        $scope.jobDetails.DatePosted[0] = "";
+                        $scope.jobDetails.DatePosted = "";
                     }
-                    if(typeof $scope.jobDetails.ContactEmailAddress != 'object')
+                    if(typeof $scope.jobDetails.ContactEmailAddress != 'string')
                     {
                         $scope.jobDetails.ContactEmailAddress = {};
-                        $scope.jobDetails.ContactEmailAddress[0] = "";
+                        $scope.jobDetails.ContactEmailAddress = "";
                     }
-                    if(typeof $scope.jobDetails.CompanyProfile != 'object')
+                    if(typeof $scope.jobDetails.CompanyProfile != 'string')
                     {
                         $scope.jobDetails.CompanyProfile = {};
-                        $scope.jobDetails.CompanyProfile[0] = "";
+                        $scope.jobDetails.CompanyProfile = "";
                     }
-                    if(typeof $scope.jobDetails.City != 'object')
+                    if(typeof $scope.jobDetails.City != 'string')
                     {
                         $scope.jobDetails.City = {};
-                        $scope.jobDetails.City[0] = "";
+                        $scope.jobDetails.City = "";
                     }
-                    if (typeof $scope.jobDetails.Skills != 'object') {
+                    if (typeof $scope.jobDetails.Skills != 'string') {
                         $scope.jobDetails.Skills = {};
-                        $scope.jobDetails.Skills[0] = "";
+                        $scope.jobDetails.Skills = "";
                     }
                 })
                     .error (function (error){

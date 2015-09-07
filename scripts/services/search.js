@@ -136,7 +136,6 @@ angular.module('dashboardApp')
             {
                 limitCondition = '&facet.limit='+limit;
             }
-
                 $http.get(service_base_url+'/select?q=*%3A*&fl=City&wt=json&indent=true&facet=true&facet.field=City'+limitCondition)
                 .success(function(item){
                     successCallback(item);
