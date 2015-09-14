@@ -49,9 +49,11 @@ angular.module('dashboardApp')
                     $scope.result[k].Skills = ($scope.result[k].Skills.replace(new RegExp($scope.searchText , "ig"),('<mark class="markstyle"><em>'+$scope.capitalise($scope.searchText)+'</em></mark>')));
                 }
             if (typeof $scope.result[k].ApplyUrl != 'string') {
-               // $scope.result[k].ApplyUrl = {};
                 $scope.result[k].ApplyUrl = "";
             }
+                if (typeof $scope.result[k].Age != 'string') {
+                    $scope.result[k].Age = "";
+                }
             if (typeof $scope.result[k].Industry != 'string') {
                // $scope.result[k].Industry = {};
                 $scope.result[k].Industry = "";

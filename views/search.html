@@ -47,7 +47,7 @@
                                             <span ng-if="job.JobDetailUrl1 != ''">, <a target="_blank" ui-sref="jobDetails({JobDetailUrl:job.JobDetailUrl1})" > Read More... </a></span>
                                         </td>
                                         <td style="width:5%"><span ng-if="job.ApplyUrl != ''"><a ng-if="job.ApplyUrl != ''"  target="_blank" href="{{job.ApplyUrl}}">Apply</a></span></td>
-                                        <td style="width:5%">2 days</td>
+                                        <td style="width:5%">{{job.Age}} days</td>
                                     </tr>
                                 </table>
                             </td>
