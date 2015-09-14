@@ -54,7 +54,7 @@ angular.module('dashboardApp')
                 if (typeof $scope.result[k].Age != 'string' || $scope.result[k].Age == '0') {
                     $scope.result[k].Age = "Today";
                 }
-               
+
             if (typeof $scope.result[k].Industry != 'string') {
                // $scope.result[k].Industry = {};
                 $scope.result[k].Industry = "";

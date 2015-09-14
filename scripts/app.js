@@ -56,6 +56,10 @@ angular
             templateUrl: "views/job_details.html",
             controller: "JobDetailsCtrl"
         })
+        .state('maintenance', {
+            url: "/maintenance",
+            templateUrl: "views/maintenance.html"
+        })
 
         // Add a simple interceptor that will fetch all requests and add the jwt token to its authorization header.
         // NOTE: in case you are calling APIs which expect a token signed with a different secret, you might
