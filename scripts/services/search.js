@@ -40,7 +40,7 @@ angular.module('dashboardApp')
                 error: function (callback) {errorCallback = callback; return response;}
             };
             //alert(service_base_url+'/select?q='+technology+'&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=*&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.highlightMultiTerm=true&hl.snippets=4');
-            $http.get(service_base_url+'/select?q='+technology+'&start='+start+'&rows='+records+'&sort=Age+desc&wt=json&indent=true&hl=true&hl.fl=*&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.highlightMultiTerm=true&hl.snippets=4')
+            $http.get(service_base_url+'/select?q='+technology+'&start='+start+'&rows='+records+'&sort=Age+dasc&wt=json&indent=true&hl=true&hl.fl=*&hl.simple.pre=%3Cem%3E&hl.simple.post=%3C%2Fem%3E&hl.requireFieldMatch=true&hl.usePhraseHighlighter=true&hl.highlightMultiTerm=true&hl.snippets=4')
                 .success(function(item){
                     successCallback(item);
                 })
@@ -108,7 +108,7 @@ angular.module('dashboardApp')
             category_name = encodeURIComponent(category_name);
             //alert(service_base_url+'/select?q=CompanyName%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>');
             //$http.get(service_base_url+'/select?q=City%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
-            $http.get(service_base_url+'/select?q=CompanyName%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&sort=Age+desc&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
+            $http.get(service_base_url+'/select?q=CompanyName%3A%22'+category_name+'%22&start='+start+'&rows='+records+'&sort=Age+asc&wt=json&indent=true&hl=true&hl.fl=JobDescription+JobTitle+WholePosting&hl.simple.pre=<em>&hl.simple.post=<%2Fem>')
                 .success(function(item){
                     successCallback(item);
                 })
