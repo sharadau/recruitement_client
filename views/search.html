@@ -52,6 +52,12 @@
                                 </table>
                             </td>
                         </table>
+                        <br/>
+                        <div ng-show="resultCount == 0">
+                                <table>
+                                    <tr><td><b>No Result found for {{searchText}}</b></td></tr>
+                                </table>
+                        </div>
                         <div class="nav navbar-nav navbar-right" style="padding-right: 30px;" ng-show="resultCount > 0" >
                             <table>
                                 <tr>
